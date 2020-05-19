@@ -49,6 +49,8 @@ def processKeySequence(data):
   print("-- SYN --")
 
 async def server(websocket, path):
+  client = websocket.remote_address
+  print("client connected: " + client[0])
   while True:
     data = await websocket.recv()
     print(data)
