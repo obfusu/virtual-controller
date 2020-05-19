@@ -11,6 +11,7 @@ class CircleButton extends React.Component {
     this.text = props.text || "T"
     this.textColor = props.textColor || "black"
     this.onPressIn = props.onPressIn
+    this.onPressOut = props.onPressOut
   }
 
   pressed() {
@@ -22,6 +23,9 @@ class CircleButton extends React.Component {
 
   released() {
     console.log(`${this.text} released`)
+    if (this.onPressOut) {
+      this.onPressOut()
+    }
   }
 
 

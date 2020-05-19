@@ -2,8 +2,14 @@ import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import CircleButton from './CircleButton'
 import Svg, { Circle } from 'react-native-svg';
+import backend from '../services/backend'
 
 class ActionPad extends React.Component {
+  send = (data) => {
+    console.log(data)
+    backend.send(data)
+  }
+
   render() {
     return (
       <View>
@@ -11,7 +17,10 @@ class ActionPad extends React.Component {
         <CircleButton text="Y" />
         <CircleButton text="A" />
         <CircleButton text="B" />
-        <CircleButton text="Up" />
+        <CircleButton text="Up" 
+          onPressIn={() => { backend.send('k1') }}
+          onPressOut={() => { backend.send('k0') }}
+          />
         <Text>BB</Text>
       </View>
     )
