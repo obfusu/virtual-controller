@@ -10,10 +10,14 @@ class CircleButton extends React.Component {
     this.outlineColor = props.outlineColor || "purple"
     this.text = props.text || "T"
     this.textColor = props.textColor || "black"
+    this.onPressIn = props.onPressIn
   }
 
   pressed() {
     console.log(`${this.text} pressed`)
+    if (this.onPressIn) {
+      this.onPressIn()
+    }
   }
 
   released() {
