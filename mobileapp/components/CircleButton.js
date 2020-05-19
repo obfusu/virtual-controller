@@ -31,7 +31,7 @@ class CircleButton extends React.Component {
 
   render() {
     return (
-      <TouchableOpacity onPressIn={this.pressed} onPressOut={this.released}>
+      <TouchableOpacity style={{width: 100, height: 100, backgroundColor: 'tomato'}} onPressIn={this.pressed} onPressOut={this.released}>
       <Svg height="100px" width="100px" viewBox="0 0 100 100">
           <Circle cx="50%" cy="50%" r="30" strokeWidth="2" fill="transparent" stroke={this.outlineColor}/>
           <Text textAnchor="middle" fontSize="20" stroke={this.textColor} fill="black" x="50%" y="50%" dy="0.35em" dx="-0.2em"> {this.text} </Text>

@@ -12,16 +12,17 @@ class ActionPad extends React.Component {
 
   render() {
     return (
-      <View>
-        <CircleButton text="X" />
-        <CircleButton text="Y" />
-        <CircleButton text="A" />
-        <CircleButton text="B" />
-        <CircleButton text="Up" 
-          onPressIn={() => { backend.send('k1') }}
-          onPressOut={() => { backend.send('k0') }}
-          />
-        <Text>BB</Text>
+      <View style={styles.container}>
+        <View style={ styles.buttonRow }>
+          <CircleButton text="X" />
+        </View>
+        <View style={ styles.buttonRow }>
+          <CircleButton text="Y" />
+          <CircleButton text="A" />
+        </View>
+        <View style={ styles.buttonRow }>
+          <CircleButton text="B" />
+        </View>
       </View>
     )
   }
@@ -29,12 +30,22 @@ class ActionPad extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0,
+    width: 300,
+    height: 300,
+    backgroundColor: 'lightblue',
+    justifyContent: 'center'
+    // flex: 0,
     // width: "400px",
     // height: "400px",
     // backgroundColor: '#ffe',
     // alignItems: 'center',
     // justifyContent: 'center',
+  },
+
+  buttonRow: {
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    flexDirection: 'row'
   }
 });
 

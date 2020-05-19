@@ -55,7 +55,10 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Connected to {this.state.HOST_ADDRESS}</Text>
-        <ActionPad></ActionPad>
+        <View style={{ flexDirection: 'row'}}>
+          <ActionPad></ActionPad>
+          <ActionPad></ActionPad>
+        </View>
         <CircleButton text="S" onPressIn={this.openSettings}></CircleButton>
 
         <Dialog.Container visible={this.state.showSettings}>
@@ -75,9 +78,9 @@ async function sendEvent(data) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   }
 });
