@@ -1,28 +1,20 @@
 Architecture
 -------------
 
-Bottom to top:
-=============
-
-Virtual Driver (C)
-
-UDP Server (C)
-
-http server (node)
-
-client (android)
+client (android - react native) -> websocket server (python) -> virtual device (python)
 
 Protocol
-client will keep sending key strokes when updated
-http server will keep collecting keys and for every 1 ms, and send final key state with SYN_REPORT
+--------
+client will keep sending key strokes in string format
+websocket server will keep collecting these strings, translate them into key press and release, and adds a SYN_REPORT at the end
 
 For EV_KEY, values 0 mean key is not pressed, and 1 means key is pressed.
 Sometimes, value 2 is reported for repeated key press (for keyboard this value is emitted when u keep pressing the key without lifting up)
 
 
-
-------------------------------
-
+Xbox Controller supported capabilities
+--------------------------------------
+```
 Input driver version is 1.0.1
 Input device ID: bus 0x0 vendor 0x0 product 0x0 version 0x0
 Input device name: "Xbox Gamepad (userspace driver)"
@@ -73,3 +65,4 @@ Supported events:
       Value      0
       Min       -1
       Max        1
+```
