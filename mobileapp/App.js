@@ -4,6 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import Dialog from 'react-native-dialog'
 import CircleButton from './components/CircleButton'
 import ActionPad from './components/ActionPad'
+import * as ScreenOrientation from 'expo-screen-orientation'
 // import { Circle } from 'react-native-svg';
 // const SvgText = Svg.Text
 
@@ -18,6 +19,7 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props)
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
   }
 
   componentDidMount () {
